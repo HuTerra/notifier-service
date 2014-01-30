@@ -1,0 +1,15 @@
+h1 Campaigns
+- unless @campaigns.empty?
+  table.table.table-striped.campaign-table
+    thead
+      tr
+        th
+        th
+        th
+    tbody
+      - for c in @campaigns do
+        tr
+          td: h4 = c.name
+          td = link_to 'View', campaign_path(c), class: 'btn btn-default'
+          td = link_to 'Delete', campaign_path(c), method: :delete, class: 'btn btn-default', confirm: 'Are you sure?'
+= link_to 'Create', new_campaign_path, class: 'btn btn-default'

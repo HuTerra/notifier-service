@@ -1,0 +1,18 @@
+h1 Notification
+
+p Title: #{@notification.title}
+p Message: #{@notification.message}
+p Key: #{@notification.id}
+
+hr
+
+p
+  = link_to 'Edit', edit_campaign_notification_path(@campaign, @notification), class: 'btn btn-default'
+
+javascript:
+  var _bconf = _bconf || {};
+  _bconf['_key'] = '#{@campaign.id}';
+  _bconf['_note'] = #{@notification.id};
+  _bconf['_baseUrl'] = '#{request.base_url}';
+
+script src="#{request.base_url}/notifier.js"

@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title = full_title(yield(:title))
+    == stylesheet_link_tag 'application', media: 'all'
+    == csrf_meta_tags
+
+  body
+    .container
+      .row
+        .col-md-6.col-md-offset-3
+          = render 'layouts/navigation'
+
+          - flash.each do |key, value|
+            = render 'application/alert', type: key, message: value
+
+          == yield
+    == javascript_include_tag 'application'

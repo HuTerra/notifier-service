@@ -1,0 +1,36 @@
+#banner {
+    text-align: center;
+    padding: 3px;
+}
+#banner #container {
+    padding: 7px;
+    width: 60%;
+    margin: 0 auto;
+    position: relative;
+    border: 1px solid #ffc900;
+    border-bottom-color: #868200;
+    border-radius: 3px;
+    background: #ffc900 linear-gradient(#ffe173, #ffc900) repeat-x;
+    box-sizing: border-box;
+}
+#banner h4 {
+    font-size: 30px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+#banner h4 img {
+    margin-top: -5px;
+    padding-right: 10px;
+    height: 30px;
+}
+#banner a#bannerClose {
+    text-decoration: none;
+    color: inherit;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    font-size: 20px;
+}

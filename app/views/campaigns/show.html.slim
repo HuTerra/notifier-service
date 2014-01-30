@@ -1,0 +1,30 @@
+h1 = @campaign.name
+hr
+
+- unless @campaign.notifications.empty?
+  table.table.table-striped.campaign-table
+    thead
+      tr
+        th Notifications
+        th
+        th
+        th
+    tbody
+      - for n in @campaign.notifications
+        tr
+          td: h4 = n.title
+          td = link_to 'View', campaign_notification_path(@campaign, n), class: 'btn btn-default'
+          td = link_to 'Edit', edit_campaign_notification_path(@campaign, n), class: 'btn btn-default'
+          td = link_to 'Delete', campaign_notification_path(@campaign, n), method: :delete, class: 'btn btn-default', confirm: 'Are you sure?'
+- else
+  p This campaign has no notifications
+
+= link_to 'Add Notification', new_campaign_notification_path(@campaign), class: 'btn btn-default'
+hr
+p To add this campaign to your website, paste the following directly before your site's &lt;/body&gt; tag
+  on any pages the notifications should get displayed.
+pre &lt;script type=&quot;text/javascript&quot;&gt;
+      var _bconf = _bconf || {};
+      _bconf['_key'] = '#{@campaign.id}';
+    &lt;/script&gt;
+    &lt;script src='#{request.base_url}/notifier.js'&gt;&lt;/script&gt;
